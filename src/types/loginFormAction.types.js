@@ -1,0 +1,7 @@
+const loginFormActionTypes = {
+    CHANGE_EMAIL_STATE: 'CHANGE_EMAIL_STATE',
+    CHANGE_PASSWORD_STATE: 'CHANGE_PASSWORD_STATE',
+    CHANGE_ERROR_MESSAGE_STATE:"CHANGE_ERROR_MESSAGE_STATE",
+}
+
+export default loginFormActionTypes;

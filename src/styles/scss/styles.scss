@@ -1,0 +1,18 @@
+//Outside Imports
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+
+//Base
+@import './base/variables.styles.scss';
+@import './base/settings.styles.scss';
+
+//Shared Components
+@import './components/shared/header.styles.scss';
+@import './components/shared/footer.styles.scss';
+@import './components/custom/animatedButton.styles';
+
+//Pages
+@import './pages/dashboard.styles.scss';
+
+//Custom components
+@import './components/custom/login.styles.scss';

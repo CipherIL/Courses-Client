@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    color: $text-color-default;
+    font-family: $text-font-family-default;
+}
+
+body{
+    background-color: $page-background-color;
+}
+
+a {
+    text-decoration: none;
+}

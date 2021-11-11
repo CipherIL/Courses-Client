@@ -1,0 +1,18 @@
+%animated-button{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: $gray-medium;
+    border: 1px solid #fff;
+    box-shadow: 0 6px 10px -5px $gray-very-light;
+    transition: all 100ms linear;
+
+    &:hover{
+        background-color: #fff;
+        color: $gray-dark;
+        box-shadow: none;
+    }
+}

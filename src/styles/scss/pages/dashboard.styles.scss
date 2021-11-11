@@ -1,0 +1,8 @@
+.page-main {
+    min-height: calc(100vh - $page-header-height - $page-footer-height);
+    margin-top: $page-header-height;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
