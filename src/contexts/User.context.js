@@ -2,7 +2,7 @@ import React, {createContext, useState} from "react";
 
 export const UserContext = createContext();
 
-const UserContextProvider = ({children}) => {
+export const UserContextProvider = ({children}) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isProfessor, setIsProfessor] = useState();
     return (

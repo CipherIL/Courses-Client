@@ -1,38 +1,37 @@
 import React, {useContext, useEffect, useState} from "react";
-import Login from "../components/custom/Login.component";
-import { checkIsLoggedIn } from "../utils/isLoggedIn";
-
 import { UserContext } from "../contexts/User.context";
+import { getAllCourses } from "../server/professor.requests";
+import { createCourseCard } from "../utils/createCourseCard";
 
 const Dashboard = () => {
-    const {isLoggedIn, setIsLoggedIn, isProfessor, setIsProfessor} = useContext(UserContext);
-    const [isLoading,setIsLoading] = useState(true);
+    const {isProfessor} = useContext(UserContext);
+    const [isLoading, setIsLoading] = useState(true);
+    const [courses, setCourses] = useState([]);
+    useEffect(()=>{
+        if(isProfessor) {
+            getAllCourses()
+            .then(res=>{
+                setCourses(res.map(course=>createCourseCard(course)));
+                setIsLoading(false);
+            })
+        }
+        else {
 
-    useEffect(() => {
-        checkIsLoggedIn()
-        .then(res=>{
-            if(res===400 || res===500) setIsLoggedIn(false);
-            else if(res===true){
-                setIsLoggedIn(true);
-                setIsProfessor(true);
-            }
-            else{
-                setIsLoggedIn(true);
-                setIsProfessor(false);
-            }
-        })
-        .catch(err=>{
-
-        })
-        setIsLoading(false);
-        console.log(isLoggedIn)
-    }, [setIsLoggedIn,setIsProfessor]);
-    
-    // You stopped here!!
+        }
+    },[])
     
     return(
         <div className="page-main">
-            {!isLoggedIn && <Login/>} 
+            {isLoading && 
+            <div className="dashboard-loader-container">
+                <div className="dashboard-loader"></div>
+            </div> 
+            }
+            {courses.length > 0 && 
+            <div className="course-cards__container">
+                {courses}
+            </div>
+            }
         </div>
     )
 };

@@ -27,19 +27,29 @@ export const userLogin = async (email,password) => {
     }
 }
 
+export const userLogout = async () => {
+    const link = `${DOMAIN}:${PORT}/user/logout`;
+    try{
+        const response = await axios.get(link,{withCredentials:true});
+        return true;
+    }catch(err){
+        return false;
+    }
+}
+
 export const checkValidToken = async () => {
     const link = `${DOMAIN}:${PORT}/user/check-token`;
     try{
         const response = await axios.get(link,{withCredentials:true});
         if(response.status === 200) return {
-            status: 200,
-            isProfessor: response.data.isProfessor,
+            valid: true,
+            isProfessor: response.data,
         }
         else return undefined;
     }catch(err){
         return {
-            status: err.response.status,
-            data: err.response.data,
+            valid: false,
+            data: err.response.status,
         }
     }
 }

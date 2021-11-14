@@ -3,16 +3,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
 
 //Base
-@import './base/variables.styles.scss';
-@import './base/settings.styles.scss';
+@import './base/variables.styles';
+@import './base/settings.styles';
 
 //Shared Components
-@import './components/shared/header.styles.scss';
-@import './components/shared/footer.styles.scss';
-@import './components/custom/animatedButton.styles';
+@import './components/shared/Header.styles';
+@import './components/shared/Footer.styles';
+@import './components/shared/Loader.styles';
+@import './components/shared/PageMain.styles';
 
 //Pages
-@import './pages/dashboard.styles.scss';
+@import './pages/Dashboard.styles';
+@import './pages/PageNotFound.styles';
+@import './pages/AddCourse.styles';
+@import './pages/Login.styles';
 
 //Custom components
-@import './components/custom/login.styles.scss';
+@import './components/custom/animatedButton.styles';
