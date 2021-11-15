@@ -56,6 +56,68 @@
                     width: 100%;
                     height: 100%;
                     overflow: auto;
+                    
+                    .window-container {
+                        width: 100%;
+                        border-bottom: 2px solid #fff;
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        justify-content: space-evenly;
+                        align-items: center;
+                        .window__day,
+                        .window__time,
+                        .delete-window-button__container {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            margin: 5px 0;
+                        }
+                        select {
+                            width: 150px;
+                            font-size: 1.1rem;
+                            color: $gray-medium;
+                            font-weight: bold;
+                            margin-left: 10px;
+                        }
+                        option {
+                            color: $gray-medium;
+                        }
+                        .delete-window-button {
+                            background: transparent;
+                            border: 2px solid $error-red;
+                            font-size: 1.1rem;
+                            font-weight: bold;
+                            color: $error-red;
+                            text-align: center;
+                            width: 30px;
+                            height: 30px;
+                            cursor: pointer;
+                        }
+                    }
+                    .add-button__container {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin: 10px 0;
+
+                        .add-button {
+                            width: 40px;
+                            height: 40px;
+                            color: #fff;
+                            background: transparent;
+                            font-size: 1.5rem;
+                            font-weight: bold;
+                            border-radius: 50%;
+                            border: 2px solid #fff;
+                            cursor: pointer;
+                            &:hover{
+                                background: #fff;
+                                color: $gray-medium;
+                            }
+                        }
+                    }    
                 }
             }
         }

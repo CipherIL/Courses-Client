@@ -440,6 +440,66 @@ a {
   height: 100%;
   overflow: auto;
 }
+.add-course__form-container form .form-field.expandable .windows-container .window-container {
+  width: 100%;
+  border-bottom: 2px solid #fff;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.add-course__form-container form .form-field.expandable .windows-container .window-container .window__day,
+.add-course__form-container form .form-field.expandable .windows-container .window-container .window__time,
+.add-course__form-container form .form-field.expandable .windows-container .window-container .delete-window-button__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+}
+.add-course__form-container form .form-field.expandable .windows-container .window-container select {
+  width: 150px;
+  font-size: 1.1rem;
+  color: #2d2d2d;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.add-course__form-container form .form-field.expandable .windows-container .window-container option {
+  color: #2d2d2d;
+}
+.add-course__form-container form .form-field.expandable .windows-container .window-container .delete-window-button {
+  background: transparent;
+  border: 2px solid #ff8a8a;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ff8a8a;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.add-course__form-container form .form-field.expandable .windows-container .add-button__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+.add-course__form-container form .form-field.expandable .windows-container .add-button__container .add-button {
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: transparent;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+.add-course__form-container form .form-field.expandable .windows-container .add-button__container .add-button:hover {
+  background: #fff;
+  color: #2d2d2d;
+}
 
 .login__container {
   width: 100%;
