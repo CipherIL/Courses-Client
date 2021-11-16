@@ -15,7 +15,7 @@ export const ADD_COURSE_FORM_INITIAL_STATE = {
         name: false,
         startDate: false,
         endDate: false,
-        weeklyWindows: false,
+        weeklyWindows: true,
         notConflictingDates: false,
     },
     isNotFullForm: true,
@@ -31,7 +31,7 @@ const addCourseFormReducer = (state,action) => {
                                       .some(key => updatedValidities[key] === false);
             return {
                 values: updatedValues,
-                errorMessage: state.errorMessage,
+                errorMessage: {...state.errorMessage},
                 validities: updatedValidities,
                 isNotFullForm: updatedIsNotFullForm,
             }
@@ -91,6 +91,7 @@ const addCourseFormReducer = (state,action) => {
             weeklyWindows[windowIndex].day = day;
             weeklyWindows[windowIndex].time = time;
             const updatedValues = {...state.values, weeklyWindows: weeklyWindows};
+            
             return{
                 values: updatedValues,
                 errorMessage: {...state.errorMessage},
@@ -102,25 +103,33 @@ const addCourseFormReducer = (state,action) => {
             const weeklyWindows = [...state.values.weeklyWindows];
             weeklyWindows.push({day:0,time:"08:30 - 09:20",key:nanoid()});
             const updatedValues = {...state.values, weeklyWindows: weeklyWindows};
+            const updatedValidities = {...state.validities, weeklyWindows: true};
+            const updatedIsNotFullForm = Object.keys(updatedValidities)
+                                      .some(key => updatedValidities[key] === false);
             return {
                 values: updatedValues,
-                errorMessage: state.errorMessage,
-                validities: state.validities,
-                isNotFullForm: state.isNotFullForm,
+                errorMessage: {...state.errorMessage},
+                validities: updatedValidities,
+                isNotFullForm: updatedIsNotFullForm,
             }
         }
         case addCourseFormActionTypes.DELETE_WEEKLY_WINDOW : {
             const key = action.payload.value;
             const weeklyWindows = [...state.values.weeklyWindows];
             const windowIndex = weeklyWindows.findIndex(window=>window.key===key);
+            console.log(key)
+            console.log(weeklyWindows,windowIndex)
             weeklyWindows.splice(windowIndex,1);
             const updatedValues = {...state.values, weeklyWindows: weeklyWindows};
+            const updatedValidities = {...state.validities, weeklyWindows: weeklyWindows.length > 0}
+            const updatedIsNotFullForm = Object.keys(updatedValidities)
+                                      .some(key => updatedValidities[key] === false);
             return{
                 values: updatedValues,
                 errorMessage: {...state.errorMessage},
-                validities: {...state.validities},
-                isNotFullForm: state.isNotFullForm,
-            }  
+                validities: updatedValidities,
+                isNotFullForm: updatedIsNotFullForm,
+            }
         }
         default : {
             return {...state};

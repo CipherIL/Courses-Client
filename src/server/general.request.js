@@ -31,9 +31,9 @@ export const userLogout = async () => {
     const link = `${DOMAIN}:${PORT}/user/logout`;
     try{
         const response = await axios.get(link,{withCredentials:true});
-        return true;
+        return response.data;
     }catch(err){
-        return false;
+        return err.response;
     }
 }
 

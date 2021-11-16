@@ -5,7 +5,6 @@ const dateToString = (date) => {
 }
 
 export const createCourseCard = (course) => {
-    console.log(course)
     return (
         <div className="course-card" key={nanoid()}>
             <div className="course-name">{course.name}</div>

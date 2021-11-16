@@ -1,0 +1,81 @@
+.add-student__form-container {
+    min-width: 300px;
+    width: 450px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    border: 2px solid #fff;
+    border-radius: 10px;
+
+    .add-student__form-title {
+        width: 100%;
+        text-align: center;
+        padding: 5px;
+        background: #fff;
+        color: $gray-medium;
+    }
+
+    .add-student__form {
+        width: 100%;
+        padding: 10px;
+        
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            row-gap: 10px;
+            
+            label {
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
+
+            input {
+                font-size: 1.2rem;
+                font-weight: bold;
+                border-radius: 10px;
+                border: none;
+                color: $gray-medium;
+                padding: 0 5px;
+            }
+            
+        }
+
+        .form-error {
+            color: $error-red;
+            text-align: center;
+        }
+
+        .form-submit-button {
+            background: transparent;
+            border: 2px solid #fff;
+            width: 100px;
+            height: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            align-self: center;
+            margin-top: 10px;
+            transition: all 100ms linear;
+            cursor: pointer;
+            &:hover {
+                background: #fff;
+                color: $gray-medium;
+            }
+            &:disabled {
+                opacity: 0.2;
+
+                &:hover {
+                    background: transparent;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

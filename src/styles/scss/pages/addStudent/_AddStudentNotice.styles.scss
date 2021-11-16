@@ -1,0 +1,24 @@
+.add-student__password-notice__container {
+    width: 300px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    border: 2px solid #fff;
+    border-radius: 10px;
+
+    .add-student__password-notice__title {
+        width: 100%;
+        background: #fff;
+        color: $gray-medium;
+        text-align: center;
+        padding: 5px 0;        
+    }
+
+    .add-student__password-notice__text {
+        padding: 10px;
+    }
+    
+}

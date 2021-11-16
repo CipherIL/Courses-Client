@@ -21,7 +21,7 @@ const Dashboard = () => {
     },[])
     
     return(
-        <div className="page-main">
+        <div className="page-main dashboard">
             {isLoading && 
             <div className="dashboard-loader-container">
                 <div className="dashboard-loader"></div>

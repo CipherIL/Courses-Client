@@ -12,3 +12,23 @@ export const getAllCourses = async () => {
         return false;
     }
 }
+
+export const addNewCourse = async (course) => {
+    const link = `${DOMAIN}:${PORT}/professor/new-course`;
+    try {
+        const response = await axios.post(link,{...course.values},{withCredentials:true});
+        return response.data;
+    }catch(err) {
+        return err.response;
+    }
+}
+
+export const addNewStudent = async (student) => {
+    const link = `${DOMAIN}:${PORT}/professor/new-student`;
+    try {
+        const response = await axios.post(link,{...student.values},{withCredentials:true});
+        return response.data;
+    }catch(err) {
+        return err.response;
+    }
+}

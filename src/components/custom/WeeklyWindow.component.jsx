@@ -30,7 +30,7 @@ const WeeklyWindow = ({window,dispatchForm}) => {
     }
     const handleDeleteWindow = (e) => {
         e.preventDefault();
-        dispatchForm(addCourseFormInsertValueAction(addCourseFormActionTypes.DELETE_WEEKLY_WINDOW),window.key)
+        dispatchForm(addCourseFormInsertValueAction(addCourseFormActionTypes.DELETE_WEEKLY_WINDOW,window.key));
     }
     useEffect(()=>{
         dispatchForm(addCourseFormInsertValueAction(addCourseFormActionTypes.CHANGE_WEEKLY_WINDOWS_STATE,

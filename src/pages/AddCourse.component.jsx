@@ -4,15 +4,19 @@ import addCourseFormReducer, { ADD_COURSE_FORM_INITIAL_STATE } from "../reducers
 import addCourseFormActionTypes from "../types/addCourseFormAction.types";
 import { addCourseFormInsertValueAction } from "../actions/addCourseForm.actions";
 import WeeklyWindow from "../components/custom/WeeklyWindow.component";
+import { addNewCourse } from "../server/professor.requests";
 
 const AddCourse = () => {
+    //Reducer
     const [formState,dispatchForm] = useReducer(addCourseFormReducer,ADD_COURSE_FORM_INITIAL_STATE);
+    
     const createWeeklyWindowsContent = () => {
         const content = formState.values.weeklyWindows.map(window=>
             <WeeklyWindow window={window} dispatchForm={dispatchForm} key={window.key}/> 
         )
         return content;
     }
+    //Handler Functions
     const handleNameInput = (e) => {
         const name = e.target.value;
         dispatchForm(addCourseFormInsertValueAction(addCourseFormActionTypes.CHANGE_NAME_STATE,name,true));
@@ -31,9 +35,15 @@ const AddCourse = () => {
         else
             dispatchForm(addCourseFormInsertValueAction(addCourseFormActionTypes.CHANGE_END_DATE_STATE,endDate.getTime(),true))
     }
-    const printState = (e)=> {
+    const handleSubmitForm = (e) => {
         e.preventDefault();
-        console.log(formState)
+        addNewCourse(formState)
+        .then(res=>{
+            console.log(res);
+        })
+        .catch(err=>{
+            console.log(err);
+        })
     }
     const addWeeklyWindow = (e) => {
         e.preventDefault();
@@ -72,7 +82,8 @@ const AddCourse = () => {
                             
                         </div>
                     </div>
-                    <button onClick={printState}>Test</button>
+                    <button className="add-course__submit-button" onClick={handleSubmitForm} 
+                    disabled={formState.isNotFullForm}>Submit</button>
                 </form>
             </div>
         </div>
