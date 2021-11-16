@@ -9,7 +9,7 @@ const PageNotFound = () => {
                     <div className="page-not-found__text__subtitle">The page you are looking for does not exist</div>
                 </div>
                 <div className="page-not-found__gif-container">
-                    <img src="7VE.gif" className="page-not-found__gif" />
+                    <img src="7VE.gif" className="page-not-found__gif" alt="404"/>
                 </div>
             </div>
             

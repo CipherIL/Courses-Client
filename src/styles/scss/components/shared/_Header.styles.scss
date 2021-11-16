@@ -106,13 +106,15 @@
                 height:auto;
                 transform: translateY(0) scaleY(1);
             }
-
+            a {
+                width: 100%;
+            }
             .page-header__navbar__item{
                 width: 100%;
                 border-radius: 0;
                 text-align: center;
                 border-top: 1px solid #fff;
-                &:first-child{
+                &.border-bottom{
                     border-bottom: 1px solid #fff;
                 }
             }

@@ -57,7 +57,7 @@ const Login = () => {
         .catch(err=>{
             console.log(err);
         })
-    },[])
+    },[setIsLoggedIn,setIsProfessor])
 
     return (
         isLoggedIn ? <Navigate to="/dashboard"/> :

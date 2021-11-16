@@ -39,7 +39,7 @@ const Header = () => {
                 </div>}
                 
                 <div className="page-header__navbar-container">
-                    {isLoggedIn && <div className="page-header__navbar__item" onClick={logout}>Log out</div>}
+                    {isLoggedIn && <div className="page-header__navbar__item border-bottom" onClick={logout}>Log out</div>}
                     {isProfessor && <Link to="/add-course"><div className="page-header__navbar__item">Add Courses</div></Link>}
                     {isProfessor && <Link to="/add-student"><div className="page-header__navbar__item">Add Students</div></Link>}
                 </div>

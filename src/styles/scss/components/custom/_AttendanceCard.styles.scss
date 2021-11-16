@@ -1,0 +1,57 @@
+.attendance-card__container {
+    width: 300px;
+    height: 200px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    overflow: hidden;
+
+    .attendance-card__title {
+        font-size: 1.1rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 5px 0;
+        color: $gray-medium;
+        background: #fff;
+    }
+
+    .attendance-card__windows-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        .attendance-card__window {
+            width: 100%;
+            .attendance-card__window__button {
+                background: transparent;
+                border: none;
+                border-bottom: 2px solid #fff;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                column-gap: 15px;
+                padding: 5px;
+                cursor: pointer;
+                .attendance-card__window__button__title {
+                    font-size: 0.9rem;
+                    font-weight: bold;
+                    pointer-events: none;
+                }
+                .attendance-card__window__button__arrow{
+                    pointer-events: none;
+                    img{
+                        width: 10px;
+                        filter: invert(100%) sepia(0%) saturate(6274%) hue-rotate(142deg) brightness(100%) contrast(111%);
+                        transform: rotateZ(-90deg);
+                        transition: all 100ms linear;
+                        pointer-events: none;
+                        &.rotate {
+                            transform: rotateZ(0);
+                            pointer-events: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,6 +1,5 @@
 import React, {useContext} from "react";
 import { Navigate } from "react-router-dom";
-import { checkValidToken } from "../server/general.request";
 import { UserContext } from "../contexts/User.context";
 
 export function PrivateRoute ({children}) {

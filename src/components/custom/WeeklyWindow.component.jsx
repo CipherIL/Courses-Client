@@ -35,7 +35,7 @@ const WeeklyWindow = ({window,dispatchForm}) => {
     useEffect(()=>{
         dispatchForm(addCourseFormInsertValueAction(addCourseFormActionTypes.CHANGE_WEEKLY_WINDOWS_STATE,
             {day:dayState,time:timeState,key:window.key}))
-    },[dayState,timeState])
+    },[dayState,timeState,dispatchForm,window.key])
 
     return (
         <div className="window-container">

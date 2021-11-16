@@ -138,13 +138,16 @@ a {
     height: auto;
     transform: translateY(0) scaleY(1);
   }
+  .page-header__content .page-header__navbar-container a {
+    width: 100%;
+  }
   .page-header__content .page-header__navbar-container .page-header__navbar__item {
     width: 100%;
     border-radius: 0;
     text-align: center;
     border-top: 1px solid #fff;
   }
-  .page-header__content .page-header__navbar-container .page-header__navbar__item:first-child {
+  .page-header__content .page-header__navbar-container .page-header__navbar__item.border-bottom {
     border-bottom: 1px solid #fff;
   }
 }
@@ -265,7 +268,7 @@ a {
   }
 }
 .page-main {
-  height: calc(100vh - 5rem - 3rem);
+  min-height: calc(100vh - 5rem - 3rem);
   margin-top: 5rem;
   padding: 20px 0;
   display: flex;
@@ -714,4 +717,139 @@ a {
   background-color: #fff;
   color: #1e1e1e;
   box-shadow: none;
+}
+
+.course-view__container {
+  width: 100%;
+  padding: 0 20px;
+}
+.course-view__container .course-view__course-name {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.course-view__container .section-name-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 20px;
+}
+.course-view__container .section-name-button .section-name-button__arrow {
+  pointer-events: none;
+}
+.course-view__container .section-name-button .section-name-button__arrow img {
+  width: 30px;
+  margin-top: 5px;
+  filter: invert(100%) sepia(0%) saturate(6274%) hue-rotate(142deg) brightness(100%) contrast(111%);
+  transform: rotateZ(-90deg);
+  transition: all 100ms linear;
+  pointer-events: none;
+}
+.course-view__container .section-name-button .section-name-button__arrow img.rotate {
+  transform: rotateZ(0);
+  pointer-events: none;
+}
+.course-view__container .course-view__section-name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 20px 0;
+  pointer-events: none;
+}
+.course-view__container .course-view__section-divider {
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  margin: 20px 0;
+}
+.course-view__container .course-view__course-weekly-windows-contianer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  column-gap: 20px;
+}
+.course-view__container .course-view__course-weekly-windows-contianer .course-view__course-weekly-window {
+  border: 1px solid #fff;
+  border-radius: 10px;
+  width: 150px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+.course-view__container .course-view__course-weekly-windows-contianer .course-view__course-weekly-window .course-view__course-weekly-window__day,
+.course-view__container .course-view__course-weekly-windows-contianer .course-view__course-weekly-window .course-view__course-weekly-window__time {
+  font-size: 1.2rem;
+}
+.course-view__container .course-view__expandable-content {
+  display: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  column-gap: 20px;
+  justify-content: space-evenly;
+}
+.course-view__container .course-view__expandable-content.show {
+  display: flex;
+}
+
+.attendance-card__container {
+  width: 300px;
+  height: 200px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.attendance-card__container .attendance-card__title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px 0;
+  color: #2d2d2d;
+  background: #fff;
+}
+.attendance-card__container .attendance-card__windows-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.attendance-card__container .attendance-card__windows-container .attendance-card__window {
+  width: 100%;
+}
+.attendance-card__container .attendance-card__windows-container .attendance-card__window .attendance-card__window__button {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #fff;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+  padding: 5px;
+  cursor: pointer;
+}
+.attendance-card__container .attendance-card__windows-container .attendance-card__window .attendance-card__window__button .attendance-card__window__button__title {
+  font-size: 0.9rem;
+  font-weight: bold;
+  pointer-events: none;
+}
+.attendance-card__container .attendance-card__windows-container .attendance-card__window .attendance-card__window__button .attendance-card__window__button__arrow {
+  pointer-events: none;
+}
+.attendance-card__container .attendance-card__windows-container .attendance-card__window .attendance-card__window__button .attendance-card__window__button__arrow img {
+  width: 10px;
+  filter: invert(100%) sepia(0%) saturate(6274%) hue-rotate(142deg) brightness(100%) contrast(111%);
+  transform: rotateZ(-90deg);
+  transition: all 100ms linear;
+  pointer-events: none;
+}
+.attendance-card__container .attendance-card__windows-container .attendance-card__window .attendance-card__window__button .attendance-card__window__button__arrow img.rotate {
+  transform: rotateZ(0);
+  pointer-events: none;
 }
