@@ -1,0 +1,69 @@
+.edit-students-panel{
+    margin: 0 auto;
+    display: flex;
+    column-gap: 10px;
+    padding: 10px;
+    .panel__section {
+        width: 250px;
+        border: 2px solid #fff;
+        border-radius: 10px;
+        overflow: hidden;
+
+        &.buttons {
+            border: none;
+            width: 100px;
+        }
+
+        .panel__section__title {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: $gray-medium;
+            background: #fff;   
+        }
+        .panel__section__content{
+            height: 300px;
+            
+            .student-name {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.1rem;
+                padding: 5px 0;
+                border-bottom: 1px solid #fff;
+                cursor: pointer;
+                text{
+                    pointer-events: none;
+                }
+                &.selected {
+                    background: rgb(16,122,176);
+                }
+            }
+
+            &.buttons {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                row-gap: 30px;
+                .arrow,
+                .save {
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img{
+                        width:45px;
+                        filter: invert(100%) sepia(0%) saturate(6274%) hue-rotate(142deg) brightness(100%) contrast(111%);
+                    }
+                }
+                .insert {
+                    transform: rotateZ(90deg);
+                }
+                .remove {
+                    transform: rotateZ(-90deg);
+                }
+            }
+        }
+    }
+}

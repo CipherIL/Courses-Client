@@ -1,3 +1,6 @@
+import React from "react";
+
+import ProfessorCourseEditEnrolledStudents from "./ProfessorCourseEditErolledStudents.component";
 import ProfessorCourseViewAttendance from "./ProfessorCourseViewAttendance.component";
 import ProfessorCourseViewWeeklyWindow from "./ProfessorCourseViewWeeklyWindow.component";
 
@@ -11,6 +14,7 @@ const ProfessorCourseView = ({course}) => {
             <div className="course-view__section-divider"></div>
             <ProfessorCourseViewAttendance attendance={course.attendance}/>
             <div className="course-view__section-divider"></div>
+            <ProfessorCourseEditEnrolledStudents enrolledStudents={course.students} courseId={course._id}/>
         </div>
     )
 }

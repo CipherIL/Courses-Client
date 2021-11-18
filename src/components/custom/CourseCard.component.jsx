@@ -1,3 +1,5 @@
+import React from "react";
+
 const CourseCard = ({course,updateSelectedCourse}) => {
 
     const dateToString = (date) => {

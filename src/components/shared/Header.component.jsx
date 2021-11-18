@@ -10,13 +10,11 @@ const Header = () => {
     const logout = () => {
         userLogout()
         .then(res=>{
-            if(res===true){
-                setIsLoggedIn(false);
-                setIsProfessor(false);
-            }
+            setIsLoggedIn(false);
+            setIsProfessor(false);
         })
         .catch(err=>{
-
+            console.log(err)
         })
     };
 

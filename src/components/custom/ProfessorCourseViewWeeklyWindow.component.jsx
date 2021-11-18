@@ -1,3 +1,5 @@
+import React from "react";
+
 const ProfessorCourseViewWeeklyWindow = ({weeklyWindows}) => {
     const numToDay = (num) => {
         switch(num) {

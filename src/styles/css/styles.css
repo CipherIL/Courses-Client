@@ -853,3 +853,70 @@ a {
   transform: rotateZ(0);
   pointer-events: none;
 }
+
+.edit-students-panel {
+  margin: 0 auto;
+  display: flex;
+  column-gap: 10px;
+  padding: 10px;
+}
+.edit-students-panel .panel__section {
+  width: 250px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.edit-students-panel .panel__section.buttons {
+  border: none;
+  width: 100px;
+}
+.edit-students-panel .panel__section .panel__section__title {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #2d2d2d;
+  background: #fff;
+}
+.edit-students-panel .panel__section .panel__section__content {
+  height: 300px;
+}
+.edit-students-panel .panel__section .panel__section__content .student-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  padding: 5px 0;
+  border-bottom: 1px solid #fff;
+  cursor: pointer;
+}
+.edit-students-panel .panel__section .panel__section__content .student-name text {
+  pointer-events: none;
+}
+.edit-students-panel .panel__section .panel__section__content .student-name.selected {
+  background: #107ab0;
+}
+.edit-students-panel .panel__section .panel__section__content.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 30px;
+}
+.edit-students-panel .panel__section .panel__section__content.buttons .arrow,
+.edit-students-panel .panel__section .panel__section__content.buttons .save {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.edit-students-panel .panel__section .panel__section__content.buttons .arrow img,
+.edit-students-panel .panel__section .panel__section__content.buttons .save img {
+  width: 45px;
+  filter: invert(100%) sepia(0%) saturate(6274%) hue-rotate(142deg) brightness(100%) contrast(111%);
+}
+.edit-students-panel .panel__section .panel__section__content.buttons .insert {
+  transform: rotateZ(90deg);
+}
+.edit-students-panel .panel__section .panel__section__content.buttons .remove {
+  transform: rotateZ(-90deg);
+}

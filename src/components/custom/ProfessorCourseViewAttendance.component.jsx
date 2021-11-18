@@ -1,13 +1,12 @@
+import React from "react";
+
 import AttendanceCard from "./AttendanceCard.component";
 
 const ProfessorCourseViewAttendance = ({attendance}) => {
-    console.log(attendance);
-
     const handleExpandAttendance = (e) => {
         e.target.children[1].children[0].classList.toggle('rotate')
         e.target.nextSibling.classList.toggle('show')
     }
-
     return (
         <div className="course-view__course-attendance-container">
             <button className="section-name-button" onClick={handleExpandAttendance}>
