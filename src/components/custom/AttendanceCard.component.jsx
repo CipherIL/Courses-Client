@@ -8,6 +8,7 @@ const AttendanceCard = ({date}) => {
     }
     const handleExpandAttendanceWindow = (e) => {
         e.target.children[1].children[0].classList.toggle('rotate');
+        e.target.nextSibling.classList.toggle('show');
     }
 
     return (
@@ -24,9 +25,18 @@ const AttendanceCard = ({date}) => {
                                     </div>
                                 </button>
                                 <div className="attendance-card__window__content">
-                                    {window.attended.map(attendee=>
-                                        <div className="attendance-card__window__content__attendee" key={attendee._id}>{attendee}</div>
-                                    )}
+                                    <div className="attendance-card__window__attended-list">
+                                        <div className="attendance-card__window__attended-list__title">Attended</div>
+                                        {window.attended.map(student=>
+                                            <div className="attendance-card__window__content__attendee" key={student.studentId}>{student.studentName}</div>
+                                        )}
+                                    </div>
+                                    <div className="attendance-card__window__absent-list">
+                                        <div className="attendance-card__window__absent-list__title">Didn't attend</div>
+                                        {window.notAttended.map(student=>
+                                            <div className="attendance-card__window__content__attendee" key={student.studentId}>{student.studentName}: {student.reason}</div>
+                                        )}
+                                    </div>
                                 </div>
                             </div>      
                         )

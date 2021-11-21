@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from "react";
 
 import CourseCard  from "../components/custom/CourseCard.component";
 import ProfessorCourseView from "../components/custom/ProfessorCourseView.component";
+import StudentCourseView from "../components/custom/StudentCourseView/StudentCourseView.component";
 import { UserContext } from "../contexts/User.context";
 import { getAllCourses } from "../server/professor.requests";
 import { getStudentCourses } from "../server/student.request";
@@ -53,6 +54,9 @@ const Dashboard = () => {
             }
             {isProfessor && selectedCourse !== undefined &&
                 <ProfessorCourseView course={courses.find(course=>course.key===selectedCourse)}/>
+            }
+            {!isProfessor && selectedCourse !== undefined &&
+                <StudentCourseView course={courses.find(course=>course.key===selectedCourse)}/>
             }
         </div>
     )

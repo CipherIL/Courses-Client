@@ -1,11 +1,10 @@
-import React from "react";
-
 import ProfessorCourseEditEnrolledStudents from "./ProfessorCourseEditErolledStudents.component";
 import ProfessorCourseViewAttendance from "./ProfessorCourseViewAttendance.component";
 import ProfessorCourseViewWeeklyWindow from "./ProfessorCourseViewWeeklyWindow.component";
 
 const ProfessorCourseView = ({course}) => {
     course = course.props.course;
+    
     return (
         <div className="course-view__container">
             <div className="course-view__course-name">{course.name}</div>

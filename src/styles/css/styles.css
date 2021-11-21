@@ -605,6 +605,92 @@ a {
   opacity: 0.2;
 }
 
+.change-password__form-container {
+  min-width: 350px;
+  width: 400px;
+  height: 500px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.change-password__form-container .change-password__form__title {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+  background: #fff;
+  color: #2d2d2d;
+  width: 100%;
+}
+.change-password__form-container .change-password__form {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  justify-content: space-evenly;
+}
+.change-password__form-container .change-password__form .form-field {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.change-password__form-container .change-password__form .form-field label {
+  font-size: 1.4rem;
+}
+.change-password__form-container .change-password__form .form-field input {
+  font-size: 1.4rem;
+  color: black;
+}
+.change-password__form-container .change-password__form .form-field .form-field__message {
+  font-size: 1.3rem;
+  color: #ff8a8a;
+}
+.change-password__form-container .change-password__form button {
+  width: 200px;
+  height: 50px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fff;
+  background: transparent;
+  border: 2px solid #fff;
+  align-self: center;
+  transition: all 100ms linear;
+  cursor: pointer;
+}
+.change-password__form-container .change-password__form button:hover {
+  color: #2d2d2d;
+  background: #fff;
+}
+.change-password__form-container .change-password__form button:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+.change-password__form-container .change-password__form button:disabled:hover {
+  color: #fff;
+  background: transparent;
+}
+
+.change-password__explanation-container {
+  min-width: 350px;
+  width: 600px;
+  margin: 20px;
+}
+.change-password__explanation-container .change-password__explanation__text {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+.change-password__explanation-container .change-password__explanation__text .change-password__explanation__text__paragraph {
+  font-size: 1.4rem;
+}
+
 .add-student {
   flex-wrap: wrap;
   align-items: space-evenly;
@@ -853,22 +939,39 @@ a {
   transform: rotateZ(0);
   pointer-events: none;
 }
+.attendance-card__container .attendance-card__windows-container .attendance-card__window .attendance-card__window__content {
+  display: none;
+}
+.attendance-card__container .attendance-card__windows-container .attendance-card__window .attendance-card__window__content.show {
+  display: block;
+}
+.attendance-card__container .attendance-card__windows-container .attendance-card__window .attendance-card__window__content .attendance-card__window__attended-list__title,
+.attendance-card__container .attendance-card__windows-container .attendance-card__window .attendance-card__window__content .attendance-card__window__absent-list__title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 5px;
+}
+.attendance-card__container .attendance-card__windows-container .attendance-card__window .attendance-card__window__content .attendance-card__window__content__attendee {
+  text-align: center;
+}
 
 .edit-students-panel {
   margin: 0 auto;
   display: flex;
   column-gap: 10px;
   padding: 10px;
+  min-width: 350px;
+  width: 700px;
 }
 .edit-students-panel .panel__section {
-  width: 250px;
+  width: 100%;
   border: 2px solid #fff;
   border-radius: 10px;
   overflow: hidden;
 }
 .edit-students-panel .panel__section.buttons {
   border: none;
-  width: 100px;
+  width: 100%;
 }
 .edit-students-panel .panel__section .panel__section__title {
   text-align: center;
@@ -879,6 +982,7 @@ a {
 }
 .edit-students-panel .panel__section .panel__section__content {
   height: 300px;
+  width: 100%;
 }
 .edit-students-panel .panel__section .panel__section__content .student-name {
   display: flex;
@@ -919,4 +1023,137 @@ a {
 }
 .edit-students-panel .panel__section .panel__section__content.buttons .remove {
   transform: rotateZ(-90deg);
+}
+@media (max-width: 650px) {
+  .edit-students-panel .panel__section .panel__section__content.buttons {
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100px;
+  }
+  .edit-students-panel .panel__section .panel__section__content.buttons .insert {
+    transform: rotateZ(180deg);
+  }
+  .edit-students-panel .panel__section .panel__section__content.buttons .remove {
+    transform: rotateZ(0);
+  }
+}
+@media (max-width: 650px) {
+  .edit-students-panel {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.attendance-cards__container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  row-gap: 20px;
+  column-gap: 20px;
+  flex-wrap: wrap;
+}
+
+.attendance-card {
+  min-width: 330px;
+  max-width: 500px;
+  height: 200px;
+  flex-grow: 1;
+  flex-basis: 0;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.attendance-card .attendance-card__title {
+  height: 2rem;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.attendance-card .attendance-card__title .attendance-card__title__date {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2d2d2d;
+  text-align: center;
+}
+.attendance-card .attendance-card__title img {
+  width: 20px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.attendance-card .attendance-card__content {
+  height: calc(100% - 2rem);
+  overflow: auto;
+}
+.attendance-card .attendance-card__window__conatiner {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  padding: 10px;
+  border-bottom: 1px solid #fff;
+}
+.attendance-card .attendance-card__window__conatiner .attendance-card__window__time {
+  font-weight: bold;
+}
+.attendance-card .attendance-card__window__conatiner form .form-field input,
+.attendance-card .attendance-card__window__conatiner form .form-field label {
+  pointer-events: none;
+}
+.attendance-card .attendance-card__window__conatiner form .form-field label {
+  margin-left: 10px;
+}
+.attendance-card .attendance-card__window__conatiner form .form-field.text label {
+  margin: 0;
+  margin-right: 10px;
+  font-size: 1rem;
+}
+.attendance-card .attendance-card__window__conatiner form .form-field.text input {
+  pointer-events: all;
+  color: black;
+  font-size: 1rem;
+}
+
+.modal-container {
+  height: 100vh;
+  width: 100vw;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.modal-container .modal-message {
+  background: #2d2d2d;
+  color: #858585;
+  font-size: 1.8rem;
+  font-weight: bold;
+  width: 400px;
+  min-height: 200px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation-name: pageModal;
+  animation-duration: 2s;
+}
+
+@keyframes pageModal {
+  0% {
+    transform: translateY(-250px);
+  }
+  30% {
+    transform: translateY(20px);
+  }
+  70% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(-250px);
+  }
 }

@@ -1,0 +1,88 @@
+.change-password__form-container {
+    min-width: 350px;
+    width: 400px;
+    height: 500px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    .change-password__form__title {
+        font-size: 2rem;
+        font-weight: bold;
+        padding: 20px;
+        text-align: center;
+        background: #fff;
+        color: $gray-medium;
+        width: 100%;
+    }
+
+    .change-password__form {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 20px;
+        justify-content: space-evenly;
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+            label {
+                font-size: 1.4rem;
+            }
+            input {
+                font-size: 1.4rem;
+                color: black;
+            }
+            .form-field__message {
+                font-size: 1.3rem;
+                color: $error-red;
+            }
+        }
+        button { 
+            width: 200px;
+            height: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #fff;
+            background: transparent;
+            border: 2px solid #fff;
+            align-self: center;
+            transition: all 100ms linear;
+            cursor: pointer;
+            &:hover {
+                color: $gray-medium;
+                background: #fff;
+            }
+            &:disabled {
+                opacity: 0.2;
+                cursor: not-allowed;
+                &:hover {
+                    color: #fff;
+                    background: transparent;
+                }
+            }
+        }
+    }
+}
+
+.change-password__explanation-container {
+    min-width: 350px;
+    width: 600px;
+    margin: 20px;
+    .change-password__explanation__text {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        justify-content: center;
+        padding: 20px;
+        .change-password__explanation__text__paragraph {
+            font-size: 1.4rem;
+            
+        }
+    }
+}

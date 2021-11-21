@@ -17,6 +17,7 @@
 @import './pages/PageNotFound.styles';
 @import './pages/AddCourse.styles';
 @import './pages/Login.styles';
+@import './pages/FirstLogin.styles';
 
 ///Add Student
 @import './pages/addStudent/AddStudentPage.styles';
@@ -28,3 +29,5 @@
 @import './components/custom/ProfessorCourseView.styles';
 @import './components/custom/AttendanceCard.styles';
 @import './components/custom/EditStudentsPanel.styles';
+@import './components/custom/StudentCourseView/StudentAttendanceCard.styles';
+@import './components/custom/PageMessageModal.styles';

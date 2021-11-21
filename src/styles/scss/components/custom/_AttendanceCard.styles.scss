@@ -52,6 +52,21 @@
                     }
                 }
             }
+            .attendance-card__window__content{
+                display: none;
+                &.show {
+                    display:block;
+                }
+                .attendance-card__window__attended-list__title,
+                .attendance-card__window__absent-list__title {
+                    font-weight: bold;
+                    font-size: 1.1rem;
+                    margin: 5px;
+                }
+                .attendance-card__window__content__attendee {
+                    text-align: center;
+                }
+            }
         }
     }
 }

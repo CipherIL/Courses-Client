@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { editStudentsInCourse, getAllStudents } from "../../server/professor.requests";
+import PageMessageModal from "./PageMessageModal.component";
 
 const EditStudentsPanel = ({enrolledStudents,courseId}) => {
     const [studentsInCourse,setStudentsInCourse] = useState([]);
@@ -7,12 +8,11 @@ const EditStudentsPanel = ({enrolledStudents,courseId}) => {
     const [selectedStudentsToAdd,setSelectedStudentsToAdd] = useState([]);
     const [selectedStudentsToRemove,setSelectedStudentsToRemove] = useState([]);
     const [rejectedStudents,setRejectedStudents] = useState([]);
+    const [pageMessage,setPageMessage] = useState("");
 
     useEffect(()=>{
         getAllStudents()
         .then(res=>{
-            console.log(enrolledStudents);
-            console.log(res)
             const newStudentsInCourse = [];
             enrolledStudents.forEach(enrolledStudent=>{
                 const studentIndex = res.findIndex(student=>student._id === enrolledStudent.studentId)
@@ -72,19 +72,28 @@ const EditStudentsPanel = ({enrolledStudents,courseId}) => {
         setSelectedStudentsToAdd([]);
     }
 
-    const handleSaveChanges = () => {
+    const handleSaveChanges = (e) => {
         editStudentsInCourse(courseId,studentsInCourse,rejectedStudents)
         .then(res=>{
-            console.log(res);
+            setPageMessage(res);
+            setTimeout(()=>{
+                setPageMessage("");
+                e.disabled=false;
+            },2000)
         })
         .catch(err=>{
-            console.log(err);
+            setPageMessage(err);
+            setTimeout(()=>{
+                setPageMessage("");
+                e.disabled=false;
+            },2000)
         })
     }
 
 
     return (
         <div className="edit-students-panel">
+            {pageMessage!=="" && <PageMessageModal message={pageMessage}/>}
             <div className="panel__section">
                 <div className="panel__section__title">Enrolled Students</div>
                 <div className="panel__section__content">

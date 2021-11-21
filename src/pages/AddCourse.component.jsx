@@ -1,15 +1,17 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 
 import addCourseFormReducer, { ADD_COURSE_FORM_INITIAL_STATE } from "../reducers/addCourseFrom.reducer";
 import addCourseFormActionTypes from "../types/addCourseFormAction.types";
 import { addCourseFormInsertValueAction } from "../actions/addCourseForm.actions";
 import WeeklyWindow from "../components/custom/WeeklyWindow.component";
 import { addNewCourse } from "../server/professor.requests";
+import PageMessageModal from "../components/custom/PageMessageModal.component";
 
 const AddCourse = () => {
     //Reducer
     const [formState,dispatchForm] = useReducer(addCourseFormReducer,ADD_COURSE_FORM_INITIAL_STATE);
-    
+    const [pageMessage,setPageMessage] = useState("");
+
     const createWeeklyWindowsContent = () => {
         const content = formState.values.weeklyWindows.map(window=>
             <WeeklyWindow window={window} dispatchForm={dispatchForm} key={window.key}/> 
@@ -37,12 +39,21 @@ const AddCourse = () => {
     }
     const handleSubmitForm = (e) => {
         e.preventDefault();
+        e.disabled = true;
         addNewCourse(formState)
         .then(res=>{
-            console.log(res);
+            setPageMessage(res);
+            setTimeout(()=>{
+                setPageMessage("");
+                e.disabled=false;
+            },2000)
         })
         .catch(err=>{
-            console.log(err);
+            setPageMessage(err.response);
+            setTimeout(()=>{
+                setPageMessage("");
+                e.disabled=false;
+            },2000)
         })
     }
     const addWeeklyWindow = (e) => {
@@ -52,6 +63,7 @@ const AddCourse = () => {
 
     return (
         <div className="page-main">
+            {pageMessage!=="" && <PageMessageModal message={pageMessage}/>}
             <div className="add-course__form-container">
                 <h1 className="add-course__form-title">Add Course</h1>
                 <form>

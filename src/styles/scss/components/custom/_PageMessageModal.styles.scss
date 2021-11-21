@@ -1,0 +1,43 @@
+.modal-container {
+    height: 100vh;
+    width: 100vw;
+    background: transparent;
+    position: fixed;
+    top: 0;
+    left :0;
+    z-index: 300;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    .modal-message {
+        background: $gray-medium;
+        color: $gray-very-light;
+        font-size: 1.8rem;
+        font-weight: bold;
+        width: 400px;
+        min-height: 200px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        animation-name: pageModal;
+        animation-duration: 2s;
+    }
+}
+
+@keyframes pageModal {
+    0% {
+        transform: translateY(-250px);
+    }
+    30% {
+        transform: translateY(20px);
+    }
+    70% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(-250px);
+    }
+}

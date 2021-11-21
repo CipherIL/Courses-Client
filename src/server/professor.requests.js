@@ -32,7 +32,7 @@ export const addNewCourse = async (course) => {
         const response = await axios.post(link,{...course.values},{withCredentials:true});
         return response.data;
     }catch(err) {
-        return err.response;
+        return err.response.data;
     }
 }
 
@@ -42,7 +42,7 @@ export const addNewStudent = async (student) => {
         const response = await axios.post(link,{...student.values},{withCredentials:true});
         return response.data;
     }catch(err) {
-        return err.response;
+        return err.response.data;
     }
 }
 
@@ -55,6 +55,6 @@ export const editStudentsInCourse = async (courseId,studentsInCourse,ejectedStud
         },{withCredentials:true})
         return response.data;
     } catch(err) {
-        return err.response
+        return err.response.data
     }
 }

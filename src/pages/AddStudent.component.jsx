@@ -1,13 +1,14 @@
-import React, {useReducer} from "react";
+import React, {useReducer, useState} from "react";
 import validator from 'validator';
 import addStudentFormReducer, {ADD_STUDENT_FORM_INITIAL_STATE} from "../reducers/addStudentForm.reducer";
 import { addStudentFormActionTypes } from "../types/addStudentFormAction.types";
 import { addStudentFormInsertValueAction } from '../actions/addStudentForm.actions';
 import { addNewStudent } from "../server/professor.requests";
+import PageMessageModal from '../components/custom/PageMessageModal.component';
 const AddStudent = () => {
     //Reducer
     const [formState,dispatchForm] = useReducer(addStudentFormReducer,ADD_STUDENT_FORM_INITIAL_STATE);
-
+    const [pageMessage,setPageMessage] = useState("");
     //Handler Functions
     const handleNameInput = (e) => {
         const name = e.target.value;
@@ -39,16 +40,26 @@ const AddStudent = () => {
     }
     const handleFormSubmit = (e) => {
         e.preventDefault();
+        e.disabled = true;
         addNewStudent(formState)
         .then(res=>{
-            console.log(res);
+            setPageMessage(res);
+            setTimeout(()=>{
+                setPageMessage("");
+                e.disabled = false;
+            },2000)
         })
         .catch(err=>{
-            console.log(err)
+            setPageMessage(err);
+            setTimeout(()=>{
+                setPageMessage("");
+                e.disabled = false;
+            },2000)
         })
     }
     return (
         <div className="page-main add-student">
+            {pageMessage!=="" && <PageMessageModal message={pageMessage}/>}
             <div className="add-student__form-container">
                 <h1 className="add-student__form-title">Add Student</h1>
                 <form className="add-student__form">

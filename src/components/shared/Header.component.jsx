@@ -5,13 +5,14 @@ import { userLogout } from "../../server/general.request";
 
 const Header = () => {
 
-    const {isLoggedIn, setIsLoggedIn, isProfessor, setIsProfessor} = useContext(UserContext);
+    const {isLoggedIn, setIsLoggedIn, isProfessor, setIsProfessor,setIsFirstLogin} = useContext(UserContext);
 
     const logout = () => {
         userLogout()
         .then(res=>{
             setIsLoggedIn(false);
             setIsProfessor(false);
+            setIsFirstLogin(undefined);
         })
         .catch(err=>{
             console.log(err)

@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard.component';
 import PageNotFound from './pages/PageNotFound.component';
 import AddCourse from './pages/AddCourse.component';
 import AddStudent from './pages/AddStudent.component';
+import FirstStudentLogin from './pages/FirstStudentLogin.component';
 
 //Shared Components
 import Header from './components/shared/Header.component';
@@ -24,6 +25,7 @@ const App = () => {
       <Header/>
         <Routes>
             <Route path="/" element={<Login/>}/>
+            <Route path="/first-login" element={<PrivateRoute><FirstStudentLogin/></PrivateRoute>}/>
             <Route path="/dashboard" element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
             <Route path='/add-course' element={<PrivateProfessorRoute><AddCourse/></PrivateProfessorRoute>}/>
             <Route path='/add-student' element={<PrivateProfessorRoute><AddStudent/></PrivateProfessorRoute>}/>

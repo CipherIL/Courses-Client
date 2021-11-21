@@ -43,7 +43,8 @@ export const checkValidToken = async () => {
         const response = await axios.get(link,{withCredentials:true});
         if(response.status === 200) return {
             valid: true,
-            isProfessor: response.data,
+            isProfessor: response.data.isProfessor,
+            isFirstLogin: response.data.isFirstLogin,
         }
         else return undefined;
     }catch(err){
